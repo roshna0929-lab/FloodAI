@@ -1,0 +1,23 @@
+{
+  "name": "floodai-platform",
+  "version": "1.0.0",
+  "description": "FloodAI – Live Flood Intelligence Platform Prototype",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "postinstall": "npm --prefix server install && npm --prefix client install",
+    "server": "npm --prefix server run start",
+    "client": "npm --prefix client run dev",
+    "dev": "node run-dev.js",
+    "start": "node run-dev.js",
+    "build": "npm --prefix client run build"
+  },
+  "keywords": [
+    "flood-intelligence",
+    "hydrology",
+    "gis",
+    "disaster-management"
+  ],
+  "author": "FloodAI Team",
+  "license": "MIT"
+}
