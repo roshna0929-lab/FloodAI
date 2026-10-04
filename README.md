@@ -1,7 +1,24 @@
-# FloodAI – Live Flood Intelligence Platform
+# 🌊 FloodAI – Live Flood Intelligence Platform
+
+[![React](https://img.shields.io/badge/Frontend-React_19-61DAFB?logo=react&logoColor=black)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Build-Vite_8-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/Styling-Tailwind_v4-38BDF8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Leaflet](https://img.shields.io/badge/GIS-Leaflet_1.9-199900?logo=leaflet&logoColor=white)](https://leafletjs.com/)
+[![Express](https://img.shields.io/badge/Backend-Express_4-000000?logo=express&logoColor=white)](https://expressjs.com/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 > **Interactive Full-Stack GIS & Hydrological Intelligence Prototype**  
 > *Real-time flood risk forecasting, multi-sensor telemetry assimilation, 55-year historical analytics, and ground truth validation.*
+
+---
+
+![FloodAI Live Intelligence Platform Preview](assets/dashboard-preview.jpg)
+
+---
+
+### 🌐 Quick Access Links
+- **Local Application Portal:** [http://localhost:5173/](http://localhost:5173/)
+- **Backend Telemetry API:** [http://localhost:5000/](http://localhost:5000/)
 
 ---
 
@@ -144,6 +161,41 @@ Flood detection/
             ├── CoastalCyclone.jsx   # Storm surge & cyclone track
             ├── GroundValidation.jsx # Spatial IoU & ground truth log
             └── FeedbackLoop.jsx     # 12-step assimilation cycle
+```
+
+---
+
+## 🏛️ System Architecture
+
+```mermaid
+flowchart TD
+    subgraph SENSORS ["Multi-Source Hydrological Telemetry"]
+        A1["Automatic Rain Gauges (AWS/ARG)"]
+        A2["Doppler Radar Reflectivity (dBZ)"]
+        A3["River Stage Gauges (CWC)"]
+        A4["Dam SCADA Sluice Discharge"]
+        A5["Coastal Tidal & Surge Gauges"]
+    end
+
+    subgraph ENGINE ["FloodAI Backend Simulation Engine (Express.js)"]
+        B1["Live Telemetry Assimilation"]
+        B2["Flash-Flood Rule Model (100 pts)"]
+        B3["30-Second Cyclic Feedback Loop"]
+        B4["REST Telemetry API (/api/*)"]
+    end
+
+    subgraph UI ["Command & Analytics Portal (React 19 + Vite)"]
+        C1["Interactive Leaflet GIS Map"]
+        C2["Hydrological Hydrographs & Charts"]
+        C3["What-If Scenario Sliders"]
+        C4["Emergency CAP-XML Alert Dispatcher"]
+    end
+
+    SENSORS --> B1
+    B1 --> B2
+    B2 --> B3
+    B3 --> B4
+    B4 --> UI
 ```
 
 ---
